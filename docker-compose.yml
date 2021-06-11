@@ -1,0 +1,20 @@
+version: '3'
+services: 
+  mssql-server:
+    image: mcr.microsoft.com/mssql/server:2017-CU24-ubuntu-16.04
+    environment: 
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Docker2021"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+  book-app:
+    build: .
+    environment: 
+      DatabaseServer: "172.18.0.2"
+      DatabasePort: "1433"
+      DatabaseUser: "SA"
+      DatabasePassword: "Docker2021"
+      DatabaseName: "booksdb"
+    ports:
+      - "8090:80"
