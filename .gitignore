@@ -1,0 +1,10 @@
+# Visual code files
+.vscode
+
+# modules folder
+bin
+
+#others
+Dockerfile
+*.yml
+.dockerignore
